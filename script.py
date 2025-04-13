@@ -8,8 +8,8 @@ GENRES = sorted(["Akcja", "Dramat", "Komedia", "Sci-Fi", "Horror",
                  "Romans", "Przygodowy", "Musical", "Western", "Historyczny", "Film familijny", "Film biograficzny"])
 
 # Listy do przechowywania dodanych filmów i serialii
-film_entries = []
-series_entries = []
+film_entries = [] # filmy 
+series_entries = [] # seriale 
 
 # pobieranie pól z formularzy oraz walidacja czy wszystkie pola poza polem opcjonalnym są uzupełnione
 # dodatkowo walidowane jest pole rok oraz data aby upewnić się czy jest liczbą
