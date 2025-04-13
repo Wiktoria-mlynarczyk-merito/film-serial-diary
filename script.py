@@ -1,16 +1,18 @@
+# importowanie tkintera oraz tkk (GUI oraz widgety)
 import tkinter as tk
 from tkinter import ttk, messagebox
 
-
+# lista dostępnych gatunków filmowych 
 GENRES = sorted(["Akcja", "Dramat", "Komedia", "Sci-Fi", "Horror",
                  "Kryminalny", "Fantasy", "Thriller", "Dokumentalny", "Animowany",
                  "Romans", "Przygodowy", "Musical", "Western", "Historyczny", "Film familijny", "Film biograficzny"])
 
-
+# Listy do przechowywania dodanych filmów i serialii
 film_entries = []
 series_entries = []
 
-
+# pobieranie pól z formularzy oraz walidacja czy wszystkie pola poza polem opcjonalnym są uzupełnione
+# dodatkowo walidowane jest pole rok oraz data aby upewnić się czy jest liczbą
 def add_entry():
     title = title_entry.get()
     year = year_entry.get()
@@ -18,7 +20,7 @@ def add_entry():
     rating = rating_entry.get()
     genre = genre_combo.get()
     category = category_var.get()
-    watch_date = watch_date_entry.get()
+    watch_date = watch_date_entry.get() # pole opcjonalne
 
     if not title or not year or not director or not rating or not genre or not category:
         messagebox.showwarning("Błąd", "Uzupełnij wszystkie pola!")
@@ -38,7 +40,7 @@ def add_entry():
     else:
         series_entries.append(entry)
         series_listbox.insert(tk.END, entry)
-
+# czyszczenie pól aby odrazu po dodaniu filmu/serialu można było dodać kolejny
 
     title_entry.delete(0, tk.END)
     year_entry.delete(0, tk.END)
@@ -47,7 +49,7 @@ def add_entry():
     genre_combo.set("")
     category_var.set("")
     watch_date_entry.delete(0, tk.END)
-
+# GUI
 
 root = tk.Tk()
 root.title("Dzienniczek Filmowy")
@@ -122,5 +124,5 @@ film_listbox.pack(pady=10)
 series_listbox = tk.Listbox(series_frame, width=100, height=10, bg="white")
 series_listbox.pack(pady=10)
 
-
+# uruchamianie aplikacji
 root.mainloop()
